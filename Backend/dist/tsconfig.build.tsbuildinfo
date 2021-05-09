@@ -7102,23 +7102,38 @@
         "../src/app.service.ts"
       ],
       "../src/routes/amazon-rekognition/amazon-rekognition.controller.ts": [
+        "../node_modules/@types/express/index.d.ts",
         "../src/routes/amazon-rekognition/amazon-rekognition.service.ts"
       ],
       "../src/routes/course/course.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/routes/course/course.service.ts"
       ],
+      "../src/routes/course/course.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
+      ],
       "../src/routes/course/course.service.ts": [
         "../src/routes/course/course.model.ts"
       ],
       "../src/routes/role/role.controller.ts": [
+        "../node_modules/@types/express/index.d.ts",
         "../src/routes/role/role.service.ts"
+      ],
+      "../src/routes/role/role.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
+      ],
+      "../src/routes/role/role.seed.ts": [
+        "../node_modules/nestjs-sequelize-seeder/dist/index.d.ts"
       ],
       "../src/routes/role/role.service.ts": [
         "../src/routes/role/role.model.ts"
       ],
       "../src/routes/user-course-emotion/user-course-emotion.controller.ts": [
+        "../node_modules/@types/express/index.d.ts",
         "../src/routes/user-course-emotion/user-course-emotion.service.ts"
+      ],
+      "../src/routes/user-course-emotion/user-course-emotion.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
       ],
       "../src/routes/user-course-emotion/user-course-emotion.service.ts": [
         "../src/routes/user-course-emotion/user-course-emotion.model.ts"
@@ -7127,6 +7142,9 @@
         "../node_modules/@types/express/index.d.ts",
         "../src/routes/user-course-note/user-course-note.service.ts"
       ],
+      "../src/routes/user-course-note/user-course-note.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
+      ],
       "../src/routes/user-course-note/user-course-note.service.ts": [
         "../src/routes/user-course-note/user-course-note.model.ts"
       ],
@@ -7134,12 +7152,21 @@
         "../node_modules/@types/express/index.d.ts",
         "../src/routes/user-course/user-course.service.ts"
       ],
+      "../src/routes/user-course/user-course.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
+      ],
       "../src/routes/user-course/user-course.service.ts": [
         "../src/routes/user-course/user-course.model.ts"
       ],
       "../src/routes/user/user.controller.ts": [
         "../node_modules/@types/express/index.d.ts",
         "../src/routes/user/user.service.ts"
+      ],
+      "../src/routes/user/user.model.ts": [
+        "../node_modules/sequelize-typescript/dist/index.d.ts"
+      ],
+      "../src/routes/user/user.seed.ts": [
+        "../node_modules/nestjs-sequelize-seeder/dist/index.d.ts"
       ],
       "../src/routes/user/user.service.ts": [
         "../src/routes/user/user.model.ts"
