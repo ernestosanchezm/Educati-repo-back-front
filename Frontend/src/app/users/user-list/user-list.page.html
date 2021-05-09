@@ -1,0 +1,122 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ng-container *ngIf="userType == 2;">
+      <ion-title size="large">Docentes</ion-title>
+    </ng-container>
+    <ng-container *ngIf="userType == 3;">
+      <ion-title size="large">Alumnos</ion-title>
+    </ng-container>
+    <ng-container *ngIf="userType == 4;">
+      <ion-title size="large">Apoderados</ion-title>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ng-container *ngIf="userType == 2;">
+        <ion-title size="large">Docentes</ion-title>
+      </ng-container>
+      <ng-container *ngIf="userType == 3;">
+        <ion-title size="large">Alumnos</ion-title>
+      </ng-container>
+      <ng-container *ngIf="userType == 4;">
+        <ion-title size="large">Apoderados</ion-title>
+      </ng-container>
+    </ion-toolbar>
+  </ion-header>
+
+    <ng-container *ngIf="userType == 2;">
+      <div class="ion-text-center ion-margin title">
+        <strong class="capitalize">Docentes</strong>
+      </div>
+      <div class="ion-text-center ion-margin button">
+        <ion-button color="primary" routerLink="registrar">Registrar</ion-button>
+        <ion-button color="danger" routerLink="eliminar">Eliminar</ion-button>
+      </div>
+      <div class="list">
+        <ion-list>
+          <ion-item>
+          <ion-label>DNI</ion-label>
+          <ion-label>Nombre</ion-label>
+          <ion-label>Apellido</ion-label>
+          <ion-label>Correo</ion-label>
+        </ion-item>
+          <ion-item *ngFor="let user of dataUsers;" routerLink="editar/{{user.id}}">
+            <ion-label>{{user.dni}}</ion-label>
+            <ion-label>{{user.firstName}}</ion-label>
+            <ion-label>{{user.lastName}}</ion-label>
+            <ion-label>{{user.email}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="userType == 3;">
+      <div class="ion-text-center ion-margin title">
+        <strong class="capitalize">Alumnos</strong>
+      </div>
+      <div class="ion-text-center ion-margin button">
+        <ion-button color="primary" routerLink="registrar">Registrar</ion-button>
+        <ion-button color="danger" routerLink="eliminar">Eliminar</ion-button>
+      </div>
+      <div class="list">
+        <ion-list>
+          <ion-item>
+          <ion-label>DNI</ion-label>
+          <ion-label>Nombre</ion-label>
+          <ion-label>Apellido</ion-label>
+          <ion-label>Edad</ion-label>
+          <ion-label>Grado</ion-label>
+          <ion-label>Apoderado</ion-label>
+          <ion-label>Parentesco</ion-label>
+        </ion-item>
+          <ion-item *ngFor="let user of dataUsers;" routerLink="editar/{{user.id}}">
+            <ion-label>{{user.dni}}</ion-label>
+            <ion-label>{{user.firstName}}</ion-label>
+            <ion-label>{{user.lastName}}</ion-label>
+            <ion-label>{{user.age}}</ion-label>
+            <ion-label>{{user.grade}}</ion-label>
+              <ng-container *ngFor="let ap of apoderados;">
+                <ion-label *ngIf="user.parentId == ap.id">{{ap.firstName}}</ion-label>
+              </ng-container>
+            <ion-label>{{user.parentR}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-container>
+    
+    <ng-container *ngIf="userType == 4;">
+      <div class="ion-text-center ion-margin title">
+        <strong class="capitalize">Apoderados</strong>
+      </div>
+      <div class="ion-text-center ion-margin button">
+        <ion-button color="primary" routerLink="registrar">Registrar</ion-button>
+        <ion-button color="danger" routerLink="eliminar">Eliminar</ion-button>
+      </div>
+      <div class="list">
+        <ion-list>
+          <ion-item>
+          <ion-label>DNI</ion-label>
+          <ion-label>Nombre</ion-label>
+          <ion-label>Apellido</ion-label>
+          <ion-label>Edad</ion-label>
+        </ion-item>
+          <ion-item *ngFor="let user of dataUsers;" routerLink="editar/{{user.id}}">
+            <ion-label>{{user.dni}}</ion-label>
+            <ion-label>{{user.firstName}}</ion-label>
+            <ion-label>{{user.lastName}}</ion-label>
+            <ion-label>{{user.age}}</ion-label>
+          </ion-item>
+        </ion-list>
+      </div>
+    </ng-container>
+    
+</ion-content>

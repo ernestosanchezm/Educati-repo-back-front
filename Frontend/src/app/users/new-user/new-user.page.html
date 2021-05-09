@@ -1,0 +1,106 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ng-container *ngIf="userType == 2;">
+      <ion-title size="large">Registro Docentes</ion-title>
+    </ng-container>
+    <ng-container *ngIf="userType == 3;">
+      <ion-title size="large">Registro Alumnos</ion-title>
+    </ng-container>
+    <ng-container *ngIf="userType == 4;">
+      <ion-title size="large">Registro Apoderados</ion-title>
+    </ng-container>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <ng-container *ngIf="userType == 2;">
+        <ion-title size="large">{{action}} Docentes</ion-title>
+      </ng-container>
+      <ng-container *ngIf="userType == 3;">
+        <ion-title size="large">{{action}} Alumnos</ion-title>
+      </ng-container>
+      <ng-container *ngIf="userType == 4;">
+        <ion-title size="large">{{action}} Apoderados</ion-title>
+      </ng-container>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="ion-text-center ion-margin">
+    <ng-container *ngIf="userType == 2;">
+      <strong class="capitalize">{{action}} Docentes</strong>
+    </ng-container>
+    <ng-container *ngIf="userType == 3;">
+      <strong class="capitalize">{{action}} Alumnos</strong>
+    </ng-container>
+    <ng-container *ngIf="userType == 4;">
+      <strong class="capitalize">{{action}} Apoderados</strong>
+    </ng-container>
+  </div>
+  
+  <div id="form">
+    <form name="newForm" (ngSubmit)="logForm()">
+  
+      <ion-item>
+        <ion-label>DNI:</ion-label>
+        <ion-input type="text" [(ngModel)]="userInfo.dni" name="dni" id="dni"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nombre:</ion-label>
+        <ion-textarea type="text" [(ngModel)]="userInfo.firstName" name="nombre" id="nombre"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Apellido:</ion-label>
+        <ion-textarea type="text" [(ngModel)]="userInfo.lastName" name="apellido" id="apellido"></ion-textarea>
+      </ion-item>
+      
+      <ng-container *ngIf="userType == 2;">
+        <ion-item>
+          <ion-label>Correo:</ion-label>
+          <ion-textarea type="email" [(ngModel)]="userInfo.email" name="correo" id="correo"></ion-textarea>
+        </ion-item>
+      </ng-container>
+
+      <ng-container *ngIf="userType == 3;">
+        <ion-item>
+          <ion-label>Edad:</ion-label>
+          <ion-textarea type="text" [(ngModel)]="userInfo.age" name="edad" id="edad"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Grado Académico:</ion-label>
+          <ion-textarea type="text" [(ngModel)]="userInfo.grade" name="grado" id="grado"></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label>Apoderado:</ion-label>
+          <ion-select placeholder="Select One" name="parentId" id="parentId" [(ngModel)]="userInfo.parentId">
+            <ion-select-option [value]="parent.id" *ngFor="let parent of parents;">{{parent.firstName}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Parentesco:</ion-label>
+          <ion-textarea type="text" [(ngModel)]="userInfo.parentR" name="parentR" id="parentR"></ion-textarea>
+        </ion-item>
+      </ng-container>
+
+      <ng-container *ngIf="userType == 4;">
+        <ion-item>
+          <ion-label>Edad:</ion-label>
+          <ion-textarea type="text" [(ngModel)]="userInfo.age" name="edad" id="edad"></ion-textarea>
+        </ion-item>
+      </ng-container>
+
+      <div class="ion-text-center ion-margin">
+        <ion-button type="submit" block color="primary">Guardar</ion-button>
+      </div>
+    </form>
+  </div>
+
+</ion-content>

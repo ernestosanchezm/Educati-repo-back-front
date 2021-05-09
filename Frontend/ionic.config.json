@@ -1,0 +1,9 @@
+{
+  "name": "EducaTI",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "7f801a1b"
+}
